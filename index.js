@@ -1,7 +1,7 @@
 const tmi = require('tmi.js');
 const fs = require('fs');
+require('dotenv').config();
 
-const { prefix, token, botName } = require('./config.json');
 
 const Colors = Object.freeze({
     BLUE: { name: "blue", rgb: "#0000ff" },
@@ -86,8 +86,8 @@ const client = new tmi.Client({
         reconnect: true,
     },
     identity: {
-        username: botName,
-        password: token,
+        username: process.env.BOTNAME,
+        password: process.env.TOKEN,
     },
     channels: channels,
 });
@@ -141,8 +141,8 @@ client.on('message', (channel, tags, message, self) => {
     console.log(tags);
     if (self) return; // не отвечаем на собственные сообщения
 
-    if (message.startsWith(prefix)) {
-        message = message.slice(prefix.length); // удаляем префикс команды
+    if (message.startsWith(process.env.PREFIX)) {
+        message = message.slice(process.env.PREFIX.length); // удаляем префикс команды
 
         commandName = message.split(/ +/)[0]; // получаем имя команды
         if (client.commands[commandName] === undefined) {
