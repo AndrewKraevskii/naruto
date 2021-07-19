@@ -1,5 +1,5 @@
 {
     "prefix": "!",
-    "token": "<AUTH_TOKEN>",
-    "botName": "<botname>"
+    "token": "oauth:lxon3kllst2qcpjoc9nmc8hzwjlgsa",
+    "botName": "kraevbot"
 }

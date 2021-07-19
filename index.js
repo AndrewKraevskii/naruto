@@ -69,7 +69,7 @@ class TwitchColor {
 
 }
 
-channels = [
+let channels = [
     'andrewkraevskii',
     'Rudniy_',
 ]
