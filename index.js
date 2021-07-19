@@ -138,7 +138,7 @@ function reload_active_commands() {
 
 
 client.on('message', (channel, tags, message, self) => {
-    console.log(tags);
+    // console.log(tags);
     if (self) return; // не отвечаем на собственные сообщения
 
     if (message.startsWith(process.env.PREFIX)) {
@@ -153,7 +153,6 @@ client.on('message', (channel, tags, message, self) => {
         // try {
         console.log(message);
         client.commands[commandName].execute(client, channel, tags, message.slice(commandName.length).trim());
-        console.log(commandName);
 
         // } catch {
 
