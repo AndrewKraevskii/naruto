@@ -5,6 +5,9 @@
     "main": "index.js",
     "author": "",
     "license": "ISC",
+    "scripts": {
+        "start": "node index"
+    },
     "dependencies": {
         "dotenv": "^10.0.0",
         "fs.js": "^0.0.1",
