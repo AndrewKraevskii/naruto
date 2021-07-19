@@ -150,7 +150,14 @@ client.on('message', (channel, tags, message, self) => {
             return;
         }
 
+        // try {
+        console.log(message);
         client.commands[commandName].execute(client, channel, tags, message.slice(commandName.length).trim());
         console.log(commandName);
+
+        // } catch {
+
+        // }
+
     }
 });
