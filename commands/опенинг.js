@@ -1,8 +1,7 @@
 module.exports = {
-    name: 'opening',
+    name: 'опенинг',
     cooldown: 1,
     aliases: [],
-    number: 5,
     execute(client, channel, tags, message) {
         if (message === '' || message.split(/ +/).length !== 1 || !Number.isInteger(+message)) return;
         const openings = ['https://youtu.be/vxvP9zSOL7s', 'https://youtu.be/mFLZ-I2r3Mc', 'https://youtu.be/aJRu5ltxXjc', 'https://youtu.be/kmL3EuiiWXM', 'https://youtu.be/H3aqR_n3sM4',
