@@ -1,6 +1,5 @@
 {
-    "серия": { "active": false },
     "филлер1": { "active": true },
-    "филлер2": { "active": true }
-
+    "филлер2": { "active": true },
+    "opening": { "active": true }
 }
