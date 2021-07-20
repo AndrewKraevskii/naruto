@@ -1,5 +1,6 @@
 {
     "филлер1": { "active": true },
     "филлер2": { "active": true },
-    "opening": { "active": true }
+    "opening": { "active": true },
+    "арка": { "active": true }
 }
