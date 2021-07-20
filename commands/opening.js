@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'серия',
+    name: 'opening',
     cooldown: 1,
     aliases: [],
     number: 5,
