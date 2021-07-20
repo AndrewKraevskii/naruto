@@ -72,7 +72,11 @@ module.exports = {
 
         for (let x of Object.keys(this.arkes)) {
             if (+x.split('-')[0] <= episode && episode <= +x.split('-')[1]) {
-                client.say(channel, `${x}: ${this.arkes[x]}`);
+                if (+x.split('-')[0] === +x.split('-')[1]) {
+                    client.say(channel, `${x.split('-')[0]}: ${this.arkes[x]}`);
+                } else {
+                    client.say(channel, `${x}: ${this.arkes[x]}`);
+                }
                 return;
             }
         }
