@@ -2,5 +2,6 @@
     "филлер": { "active": true },
     "опенинг": { "active": true },
     "арка": { "active": true },
-    "help": { "active": true }
+    "help": { "active": true },
+    "статистика": { "active": true }
 }
