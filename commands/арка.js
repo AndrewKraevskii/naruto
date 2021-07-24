@@ -73,16 +73,16 @@ module.exports = {
             client.say(channel, `@${tags.username} такой серии нет :(`);
         }
 
-        for (let x of this.arkes.keys) {
-            if (+x.split('-')[0] <= episode && episode <= +x.split('-')[1]) {
-                if (+x.split('-')[0] === +x.split('-')[1]) {
-                    client.say(channel, `${x.split('-')[0]}: ${this.arkes.get(x)}`);
+        this.arkes.forEach((value, key) => {
+            if (+key.split('-')[0] <= episode && episode <= +key.split('-')[1]) {
+                if (+key.split('-')[0] === +key.split('-')[1]) {
+                    client.say(channel, `${key.split('-')[0]}: ${value}`);
                 } else {
-                    client.say(channel, `${x}: ${this.arkes.get(x)}`);
+                    client.say(channel, `${key}: ${value}`);
                 }
                 return;
             }
-        }
+        });
 
         client.say(channel, `Филлерная арка. Мне лень парсить`);
     },
