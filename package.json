@@ -9,6 +9,7 @@
         "start": "node index"
     },
     "dependencies": {
+        "dict": "^1.4.0",
         "dotenv": "^10.0.0",
         "fs.js": "^0.0.1",
         "js": "^0.1.0",

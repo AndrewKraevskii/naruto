@@ -1,5 +1,6 @@
 const tmi = require('tmi.js');
 const fs = require('fs');
+const dict = require('dict');
 require('dotenv').config();
 
 
@@ -122,37 +123,41 @@ function reload_command_settings() {
 }
 
 function reload_active_commands() {
-    client.commands = {}
+    client.commands = dict()
 
     for (const commandName of activeCommandsList) {
         const commandClass = require(`./commands/${commandName}.js`);
-        client.commands[commandName] = {
+        client.commands.set(commandName, {
             ...commandClass,
             ...commandsClass[commandName]
-        }
+        });
     }
 }
 
-
-
-
-
 client.on('message', (channel, tags, message, self) => {
-    // console.log(tags);
     if (self) return; // не отвечаем на собственные сообщения
+
+
+    client.commands.forEach((value, key) => {
+        if (typeof value.onmessage === 'function') {
+            value.onmessage(client, channel, tags, message);
+        }
+    });
+
+    // console.log(tags);
 
     if (message.startsWith(process.env.PREFIX)) {
         message = message.slice(process.env.PREFIX.length); // удаляем префикс команды
 
         commandName = message.split(/ +/)[0]; // получаем имя команды
-        if (client.commands[commandName] === undefined) {
+        if (client.commands.get(commandName) === undefined) {
             console.log('команда не найдена');
             return;
         }
 
         // try {
         console.log(message);
-        client.commands[commandName].execute(client, channel, tags, message.slice(commandName.length).trim());
+        client.commands.get(commandName).execute(client, channel, tags, message.slice(commandName.length).trim());
 
         // } catch {
 

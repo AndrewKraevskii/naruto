@@ -1,8 +1,11 @@
+const dict = require("dict");
+
+
 module.exports = {
     name: 'арка',
     cooldown: 1,
     aliases: [],
-    arkes: {
+    arkes: dict({
         "1-32": "Миссия по спасению Казекаге",
         "33-53": "Инфильтрационная миссия на мосту Тенчи",
         "54-56": "Наруто тренируется",
@@ -60,7 +63,7 @@ module.exports = {
         "484-488": "[новелла] История Саскэ: Восход солнца",
         "489-493": "[новелла] История Сикамару: Облако, дрейфующее в тихой темноте",
         "494-500": "[новелла] История Конохи: Идеальный день для свадьбы"
-    },
+    }),
     execute(client, channel, tags, message) {
         if (message === '' || message.split(/ +/).length !== 1 || !Number.isInteger(+message)) return;
 
@@ -70,12 +73,12 @@ module.exports = {
             client.say(channel, `@${tags.username} такой серии нет :(`);
         }
 
-        for (let x of Object.keys(this.arkes)) {
+        for (let x of this.arkes.keys) {
             if (+x.split('-')[0] <= episode && episode <= +x.split('-')[1]) {
                 if (+x.split('-')[0] === +x.split('-')[1]) {
-                    client.say(channel, `${x.split('-')[0]}: ${this.arkes[x]}`);
+                    client.say(channel, `${x.split('-')[0]}: ${this.arkes.get(x)}`);
                 } else {
-                    client.say(channel, `${x}: ${this.arkes[x]}`);
+                    client.say(channel, `${x}: ${this.arkes.get(x)}`);
                 }
                 return;
             }
