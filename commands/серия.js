@@ -2,7 +2,7 @@ var fs = require('fs');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const _episods = [];
-fs.readFile('./src/наруто описание.html', 'utf8', (err, data) => {
+fs.readFile('./res/наруто описание.html', 'utf8', (err, data) => {
     dom = new JSDOM(data);
     list = dom.window.document.querySelectorAll('#k2Container > div.itemBody > div.itemFullText > p');
 
