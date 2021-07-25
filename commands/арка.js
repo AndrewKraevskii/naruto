@@ -71,8 +71,10 @@ module.exports = {
 
         if (!(0 < episode && episode <= 500)) {
             client.say(channel, `@${tags.username} такой серии нет :(`);
+            return;
         }
 
+        let flag = true;
         this.arkes.forEach((value, key) => {
             if (+key.split('-')[0] <= episode && episode <= +key.split('-')[1]) {
                 if (+key.split('-')[0] === +key.split('-')[1]) {
@@ -80,10 +82,11 @@ module.exports = {
                 } else {
                     client.say(channel, `${key}: ${value}`);
                 }
-                return;
+                flag = false;
             }
         });
-
-        client.say(channel, `Филлерная арка. Мне лень парсить`);
+        if (flag) {
+            client.say(channel, `Филлерная арка. Мне лень парсить`);
+        }
     },
 };

@@ -14,15 +14,27 @@ module.exports = {
 
         if (!(0 < episode_number && episode_number <= 500)) {
             client.say(channel, `@${tags.username} такой серии нет :(`);
+            return;
         }
         const episode = this.episods[episode_number - 1];
-        client.say(channel, `${episode.number}; название: ${episode.name}; описание: ${episode.description}`);
 
+        const output_text = `${episode.name}`;
+
+
+        let list_of_messages = [];
+        let text_portion = '';
+        for (let x of output_text.split(/ +/)) {
+            if ((text_portion + x).length > 450) {
+                list_of_messages.push(text_portion);
+                text_portion = '';
+            }
+            text_portion += x + ' ';
+        }
+        if (text_portion.length > 0) {
+            list_of_messages.push(text_portion);
+        }
+        list_of_messages.forEach((message, index) => {
+            setTimeout(() => client.say(channel, message), 2000 * index);
+        })
     },
 };
-
-
-
-
-
-module.exports = obj;
