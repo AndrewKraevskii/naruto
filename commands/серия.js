@@ -30,7 +30,7 @@ fs.readFile('./src/наруто описание.html', 'utf8', (err, data) => {
 
 
 module.exports = {
-    name: 'арка',
+    name: 'серия',
     cooldown: 1,
     aliases: [],
     episods: _episods,
