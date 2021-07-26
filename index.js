@@ -144,7 +144,7 @@ client.on('message', (channel, tags, message, self) => {
         }
     });
 
-    console.log(tags);
+    // console.log(tags);
 
     if (message.startsWith(process.env.PREFIX)) {
         message = message.slice(process.env.PREFIX.length); // удаляем префикс команды
