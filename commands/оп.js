@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'опенинг',
+    name: 'оп',
     cooldown: 1,
     aliases: [],
     execute(client, channel, tags, message) {
