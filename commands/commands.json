@@ -1,8 +1,8 @@
 {
     "филлер": { "active": true },
-    "опенинг": { "active": true },
+    "оп": { "active": true },
     "арка": { "active": true },
     "нарутобот": { "active": true },
     "серия": { "active": true },
-    "оп": { "active": true }
+    "описание": { "active": true }
 }
