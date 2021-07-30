@@ -20,7 +20,7 @@ module.exports = {
                 res.on('data', (d) => {
                     const body = JSON.parse(d.toString());
                     console.log(`${body.name} ${Math.round(body.main.temp)}°C`);
-                    client.say(channel, `${body.name} ${Math.round(body.main.temp)}°C`);
+                    client.say(channel, `${body.name} ${Math.round(body.main.temp)}°C ${body.weather[0].description}`);
                 });
 
 
