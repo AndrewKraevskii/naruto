@@ -17,12 +17,12 @@ module.exports = {
             if (query !== replaced) throw 'Барьер от rprtr258 MMMM'
 
             https.get(weather_api + query, (res) => {
-                console.log('statusCode:', res.statusCode);
-                console.log('headers:', res.headers);
-
                 res.on('data', (d) => {
-                    process.stdout.write(d);
+                    const body = JSON.parse(d.toString());
+                    console.log(body);
+                    console.log(`${body.name} ${Math.round(body.main.temp)}°C`);
                 });
+
 
             }).on('error', (e) => {
                 console.error(e);
