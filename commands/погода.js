@@ -19,8 +19,8 @@ module.exports = {
             https.get(weather_api + query, (res) => {
                 res.on('data', (d) => {
                     const body = JSON.parse(d.toString());
-                    console.log(body);
                     console.log(`${body.name} ${Math.round(body.main.temp)}°C`);
+                    client.say(channel, `${body.name} ${Math.round(body.main.temp)}°C`);
                 });
 
 
