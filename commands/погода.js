@@ -17,19 +17,20 @@ module.exports = {
             if (query !== replaced) throw 'Барьер от rprtr258 MMMM'
 
             https.get(weather_api + query, (res) => {
-                res.on('data', (d) => {
-                    const body = JSON.parse(d.toString());
-                    console.log(`${body.name} ${Math.round(body.main.temp)}°C`);
-                    client.say(channel, `${body.name} ${Math.round(body.main.temp)}°C ${body.weather[0].description}`);
-                });
+                if (res.statusCode === 200) {
+                    res.on('data', (d) => {
+                        const body = JSON.parse(d.toString());
+                        console.log(`${body.name} ${Math.round(body.main.temp)}°C`);
+                        client.say(channel, `${body.name} ${Math.round(body.main.temp)}°C ${body.weather[0].description}`);
+                    });
 
-
+                }
             }).on('error', (e) => {
                 console.error(e);
             });
 
         } catch (err) {
-            console.log('не найдено')
+            console.log('не найдено');
         }
 
     },
