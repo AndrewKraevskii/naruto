@@ -149,7 +149,7 @@ client.on('message', (channel, tags, message, self) => {
     if (message.startsWith(process.env.PREFIX)) {
         message = message.slice(process.env.PREFIX.length); // удаляем префикс команды
 
-        commandName = message.split(/ +/)[0]; // получаем имя команды
+        commandName = message.split(/ +/)[0].toLowerCase(); // получаем имя команды
         if (client.commands.get(commandName) === undefined) {
             console.log('команда не найдена');
             return;
