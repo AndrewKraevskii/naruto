@@ -48,30 +48,33 @@ module.exports = {
     execute(client, channel, tags, message) {
         if (message === '') return;
 
-        // if ((tags.badges === null || tags.badges.moderator !== '1' && tags.badges.broadcaster !== '1') && tags.username !== 'andrewkraevskii') {
-        //     client.say(channel, `@${tags.username} вы не владелец канала или модератор`);
-        //     return;
-        // }
+
 
         const jutsu_name = message.toLowerCase();
         let minIndex = 0;
         let minLength = Infinity;
         this.jutsus.forEach((jutsu, index) => {
-            const len = levenshtein(jutsu.name.replace("Техника ", "").toLowerCase(), jutsu_name, {replace: 1, insert:2, remove:2})
+            const len = levenshtein(jutsu.name.replace("Техника ", "").toLowerCase(), jutsu_name, { replace: 1, insert: 2, remove: 2 })
             if (len < minLength) {
                 minLength = len;
                 minIndex = index;
             }
         });
-        
+
         const jutsu = this.jutsus[minIndex];
         if (minLength === 0) {
-            client.say(channel, `${jutsu.name} Тип: ${jutsu.type}. Элемент: ${jutsu.element}.`);
+            if ((tags.badges === null || tags.badges.moderator !== '1' && tags.badges.broadcaster !== '1') && tags.username !== 'andrewkraevskii') {
+                client.say(channel, `${jutsu.name} Тип: ${jutsu.type}. Элемент: ${jutsu.element}.`);
+                return;
+            }
+            else {
+                client.say(channel, `${jutsu.name} ${jutsu.description} Тип: ${jutsu.type}. Элемент: ${jutsu.element}.`);
+            }
         }
         else if (minLength < 5) {
             client.say(channel, `${tags.username}: возможно вы имели ввиду "${jutsu.name}"`);
         }
-        else{
+        else {
             client.say(channel, `Не найдено :(`);
         }
     },

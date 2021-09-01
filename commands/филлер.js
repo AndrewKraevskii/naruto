@@ -14,7 +14,10 @@ module.exports = {
                     return;
                 }
             }
-            client.say(channel, `@${tags.username} в шипудене нет столько серий :(`);
+            if (+message <= 500) 
+                client.say(channel, `@${tags.username} филлеров больше нет`);
+            else
+                client.say(channel, `@${tags.username} в шипудене нет столько серий :(`);
         }
     },
 };
