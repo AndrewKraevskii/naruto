@@ -21,6 +21,10 @@ module.exports = {
     },
 
     execute(client, channel, tags, message) {
+        if (this.is_vote_active) {
+            client.say(channel, `@${tags.username} голосование уже запущено peepoRain`);
+            return;
+        }
         if (tags['msg-id'] !== 'highlighted-message') {
             client.say(channel, `@${tags.username} можно запустить только с выделенным сообщением`);
             return;
