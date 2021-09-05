@@ -6,5 +6,6 @@
     "серия": { "active": true },
     "описание": { "active": true },
     "погода": { "active": true },
-    "техника": { "active": true}
+    "техника": { "active": true},
+    "vote": {"active": true}
 }
