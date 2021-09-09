@@ -7,5 +7,6 @@
     "описание": { "active": true },
     "погода": { "active": true },
     "техника": { "active": true},
-    "vote": {"active": true}
+    "vote": {"active": true},
+    "egs": {"active": true}
 }
