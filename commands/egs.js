@@ -5,8 +5,6 @@ function getFreeGames(gamesArray) {
 }
 
 module.exports = {
-    name: 'нарутобот',
-    cooldown: 5,
     async execute(client, channel, tags, message) {
         try {
             const games = getFreeGames(await getGames("RU"));

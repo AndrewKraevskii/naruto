@@ -41,7 +41,7 @@ function levenshtein(s1, s2, costs) {
 }
 
 module.exports = {
-    name: 'описание',
+    name: 'техника',
     cooldown: 1,
     aliases: [],
     jutsus: JSON.parse(fs.readFileSync('./res/jutsus.json', 'utf8')),

@@ -8,5 +8,7 @@
     "погода": { "active": true },
     "техника": { "active": true},
     "vote": {"active": true},
-    "egs": {"active": true}
+    "egs": {"active": true},
+    "steam": {"active": false},
+    "бибаметр": {"active": true}
 }
