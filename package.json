@@ -15,7 +15,7 @@
         "epic-free-games": "^2.1.5",
         "fs.js": "^0.0.1",
         "js": "^0.1.0",
-        "steam": "^1.4.1",
+        // "steam": "^1.4.1",
         "tmi.js": "^1.8.3"
     },
     "devDependencies": {
